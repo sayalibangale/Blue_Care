@@ -2784,7 +2784,52 @@ span.email-notes{
             transform: translate(0px, 0px) rotate(0deg);
   }
 }
-
+/*----------------------------------------*/
+/* Find Beach Clean */
+/*----------------------------------------*/
+.search-bar {
+	background : #005b7c;
+}
+.search-bar .btn {
+	color: #fff;
+	font-size : 1.5rem;
+  border-color: #ffc107;
+	height : 60px;
+	width : 57px;
+}
+.search-bar .form-group input[type=text] {
+  width: 80%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #efeffe;
+  background : #005b7c;
+  color : #fff; 
+}
+.search-bar .form-group ::placeholder {
+  font-size : 1.2rem;
+  color : #f4f4f4;
+  font-style : italic;
+}
+.search-bar label {
+	color : white;
+	font-size : 2.1rem;
+	line-height : 40px;
+}
+.beaches {
+	background : #efeffe;
+}
+.beach-info {
+	width : 18rem;
+}
+.beaches .bottom-button .btn {
+	background : #ffc107;
+}
+.beaches .bottom-button .btn:hover {
+	background : #005b7c;
+	color : #fff;
+	border-color : #005b7c; 
+}
 /*--------------------------------*/
 /* .End CSS
 /*--------------------------------*/
