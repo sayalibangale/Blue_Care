@@ -2060,7 +2060,7 @@ span.users {
 .login-btn {
     padding: 10px 30px;
     border: 1px solid #2eb2e6;
-    background: #6e2ee6;
+    background: #E6922E;
     color: #fff;
     transition: 0.4s;
     font-size: 15px;
@@ -2073,7 +2073,7 @@ span.users {
 .login-btn:hover{
     border: 1px solid #2eace6;
     background: transparent;
-    color: #5f2ee6;
+    color:#000;
     transition: 0.4s;
 }
 .flex-box{
