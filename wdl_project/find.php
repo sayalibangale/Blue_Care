@@ -33,7 +33,7 @@
 		<link rel="stylesheet" href="style.css">
 		<!-- responsive css -->
 		<link rel="stylesheet" href="css/responsive.css">
-
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> <!-- CSS Link -->
 		<!-- modernizr css -->
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
@@ -176,13 +176,20 @@
 							
                             <div class="form-group">
                               <label>LOOKING FOR A BEACH CLEANUP ?</label><br><br>
-							  <input type="text" placeholder="Type the location" name="search">
+							  <input type="text" placeholder="Type the location" id="search_box">
 							  <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script>
+ 			$(document).ready(function(){
+			$("#search_box").autocomplete({
+				source:'beachname_details.php'
+			});
+			});
+		</script>
 		<div class="beaches p-3">
             <div class="container">
                 <div class="row">
@@ -357,7 +364,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer>	
         <!-- End Footer area -->
 		
 		<!-- all js here -->
@@ -384,6 +391,7 @@
 		<script src="js/plugins.js"></script>
 		<!-- main js -->
 		<script src="js/main.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JS Link -->
 	</body>
 
 <!-- Mirrored from rockstheme.com/rocks/aievari-live/investment.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 08:28:01 GMT -->
