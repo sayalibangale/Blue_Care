@@ -2816,13 +2816,38 @@ span.email-notes{
 .beach-info {
 	width : 18rem;
 }
-.beaches .bottom-button .btn {
-	background : #ffc107;
-}
-.beaches .bottom-button .btn:hover {
-	background : #005b7c;
+.beach-info .btn {
+	background-color : #005b7c;
 	color : #fff;
-	border-color : #005b7c; 
+	border-color : #005b7c;
+}
+.beach-info .btn:hover {
+	opacity : 0.8;
+}
+.beach_details {
+	background : #efeffe;
+}
+.beach_details img {
+	margin-top : 7%;
+	border : 5px solid #005b7c;
+}
+table {
+	font-family: "Times New Roman", Times, serif;
+	font-size : 1.3rem;
+  	border-collapse: collapse;
+  	width: 100%;
+}
+
+td {
+  	padding: 8px;
+  	text-align: left;
+  	border-bottom: 1px solid #005b7c;
+}
+td:first-child {
+	width : 40%;
+}
+td:last-child {
+	width : 60%;
 }
 /*--------------------------------*/
 /* .End CSS
