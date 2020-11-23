@@ -33,9 +33,11 @@
 		<link rel="stylesheet" href="style.css">
 		<!-- responsive css -->
 		<link rel="stylesheet" href="css/responsive.css">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> <!-- CSS Link -->
 		<!-- modernizr css -->
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+ 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	</head>
 		<body>
 
@@ -74,48 +76,20 @@
             <!-- header-area start -->
             <div id="sticker" class="header-area d-none d-md-block">
                 <div class="container">
-                    
-                            <div class="row">
-                                <!-- logo start -->
-                                <div class="col-sm-3">
-                                    <div class="logo">
-                                        <!-- Brand -->
-                                        <a class="navbar-brand page-scroll white-logo" href="index.html">
-                                            <img src="img/logo/logo3.png" alt="">
-                                        </a>
-                                        <a class="navbar-brand page-scroll black-logo" href="index.html">
-                                            <img src="img/logo/logo.png" alt="">
-                                        </a>
-                                    </div>
-                                    <!-- logo end -->
-                                </div>
-                                <div class="col-sm-9">
-                                    
-                                    <!-- mainmenu start -->
-                                    <nav class="navbar navbar-default justify-content-end navbar-expand">
-                                        
-                                            <div class="main-menu">
-                                                <ul class="nav navbar-nav navbar-right">
-                                                    <li><a class="pages" href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About us</a></li>
-                                                    <li><a href="find.php">Beach Cleanup</a></li>
-                                                    <li><a href="#">Organize Beach Cleanup</a></li>
-                                                    <li><a class="pages" href="#">Blog</a>
-                                                        <ul class="sub-menu">
-                                                            <li><a href="blog.html">Blog grid</a></li>
-                                                            <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Donation</a></li>
-                                                </ul>
-                                            </div>
-                                        
-                                    </nav>
-                                    <!-- mainmenu end -->
-                                </div>
-                            </div>
-                        
+                <!-- mainmenu start -->
+		            <nav class="navbar navbar-default justify-content-end navbar-expand">
+		            	<div class="main-menu">
+		                	<ul class="nav navbar-nav navbar-right">
+		                    	<li><a class="pages" href="index.html">Home</a></li>
+		                        <li><a href="about.html">About us</a></li>
+		                        <li><a href="find.php">Beach Cleanup</a></li>
+		                        <li><a href="#">Organize Beach Cleanup</a></li>
+		                        <li><a class="pages" href="#">Blog</a></li>
+		                        <li><a href="#">Donation</a></li>
+		                    </ul>
+		                </div>
+		            </nav>
+                <!-- mainmenu end -->
                 </div>
             </div>
             <!-- header-area end -->
@@ -169,93 +143,60 @@
         </div>
         <!-- End breadcumb Area -->
         <!-- Start Finding Beach area -->
-        <div class="search-bar bg-color page-padding-2">
+        <?php
+        $conn = mysqli_connect("localhost:3307","root","root","wdl_project");
+        $query = "SELECT * FROM organise where org_date>=CURDATE() and org_date<DATE_ADD(CURDATE(),INTERVAL 4 DAY)";
+		$result = mysqli_query($conn, $query);
+		$rowCount = mysqli_num_rows($result); ?>
+		<div class="search-bar bg-color page-padding-2">
             <div class="container">
                 <div class="row">
 					<div class="col-sm-12 col-xs-12 text-center">
-							
-                            <div class="form-group">
-                              <label>LOOKING FOR A BEACH CLEANUP ?</label><br><br>
-							  <input type="text" placeholder="Type the location" id="search_box">
-							  <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
-							</div>
+						<div class="form-group">
+                             <label>LOOKING FOR A BEACH CLEANUP ?</label><br><br>
+							 <input type="text" placeholder="Type the location" id="search_box">
+							<button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script>
- 			$(document).ready(function(){
-			$("#search_box").autocomplete({
-				source:'beachname_details.php'
-			});
-			});
+		<script type="text/javascript">
+		  $(function() {
+			 $( "#search_box" ).autocomplete({
+			   source: 'beachname_details.php',
+			 });
+		  });
 		</script>
-		<div class="beaches p-3">
-            <div class="container">
-                <div class="row">
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\juhu.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Juhu Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
+		<?php
+			if($rowCount > 0){ ?>
+				<div class="beaches p-3">
+					<div class="container">
+						<div class="row">
+			<?php 
+			while($row = mysqli_fetch_assoc($result)){ ?>
+					<div class="col-lg-4 col-sm-6 col-xs-12 p-3">
+						<div class="card beach-info">
+							<img class="card-img-top" src="img\beaches\juhu.jpg" alt="Card image cap" style="height:12rem">
+							<div class="card-body">
+								<h5 class="card-title"><?echo $row['name']?></h5>
+								<i class="far fa-calendar-alt" style='font-size:18px'></i> <?echo date('d/m/Y', strtotime($row['org_date']));
+								echo " , ";
+								echo date('l', strtotime($row['org_date']));?>
+								<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row[time] UTC"));?>
 							</div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\aksa.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Aksa Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\gorai.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Gorai Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\madh_island.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Madh Island Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\versova.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Versova Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 p-3">
-                            <div class="card beach-info">
-							  <img class="card-img-top" src="img\beaches\manori.jpg" alt="Card image cap" style="height:12rem">
-							  <div class="card-body">
-								<h5 class="card-title">Manori Beach</h5>
-								<i class="far fa-calendar-alt" style='font-size:24px'></i>
-								<br><i class="far fa-clock" style='font-size:24px'></i>
-							  </div>
-							</div>
-                        </div>
-                </div>
-            </div>
-        </div>
+							<form method="POST" class="text-right">
+        					<a class="btn rounded-0" href="details.php?org_id=<?= $row['org_id'] ?>" role="button"><i class="fas fa-arrow-right"></i></a>
+        					</form>
+						</div>
+					</div>
+			<?php } 
+			?>
+						</div>
+            		</div>
+        		</div>
+        		
+		<?php } ?>
         <!-- End Finding Beach area -->
 
         <!-- Start Footer Area -->
@@ -391,7 +332,15 @@
 		<script src="js/plugins.js"></script>
 		<!-- main js -->
 		<script src="js/main.js"></script>
-		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- JS Link -->
+		<!-- Script -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		 
+		<!-- jQuery UI -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+		 
+		
+
 	</body>
 
 <!-- Mirrored from rockstheme.com/rocks/aievari-live/investment.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 08:28:01 GMT -->
