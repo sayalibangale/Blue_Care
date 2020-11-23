@@ -152,11 +152,11 @@
             <div class="container">
                 <div class="row">
 					<div class="col-sm-12 col-xs-12 text-center">
-						<div class="form-group">
+						<form class="form-group" method="POST">
                              <label>LOOKING FOR A BEACH CLEANUP ?</label><br><br>
-							 <input type="text" placeholder="Type the location" id="search_box">
-							<button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
-						</div>
+							 <input type="text" placeholder="Type the location" name="beach_name" id="search_box" >
+							 <button type="submit" name="search" class="btn btn-warning"><i class="fa fa-search"></i></button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -169,6 +169,43 @@
 		  });
 		</script>
 		<?php
+			if(isset($_POST['search'])) {
+				$name = $_POST['beach_name'];
+				$sql = "SELECT * FROM organise WHERE name='$name' and org_date>=CURDATE()";
+				$res = mysqli_query($conn, $sql);
+				$Count = mysqli_num_rows($res);
+				if($Count > 0){ ?>
+				<div class="beaches p-3">
+					<div class="container">
+						<div class="row">
+						<?php 
+						while($row = mysqli_fetch_assoc($res)){ ?>
+								<div class="col-lg-4 col-sm-6 col-xs-12 p-3">
+									<div class="card beach-info">
+										<img class="card-img-top" src="img\beaches\juhu.jpg" alt="Card image cap" style="height:12rem">
+										<div class="card-body">
+											<h5 class="card-title"><?echo $row['name']?></h5>
+											<i class="far fa-calendar-alt" style='font-size:18px'></i> <?echo date('d/m/Y', strtotime($row['org_date']));
+											echo " , ";
+											echo date('l', strtotime($row['org_date']));?>
+											<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row[time] UTC"));?>
+										</div>
+										<form method="POST" class="text-right">
+										<a class="btn rounded-0" href="details.php?org_id=<?= $row['org_id'] ?>" role="button"><i class="fas fa-arrow-right"></i></a>
+										</form>
+									</div>
+								</div>
+						<?php } 
+						?>
+						</div>
+            		</div>
+        		</div>
+        		
+		<?php } else {
+					echo"<div class='beaches p-3'><center><h3>No records found</h3><center></div>";
+				}
+			}
+			else {
 			if($rowCount > 0){ ?>
 				<div class="beaches p-3">
 					<div class="container">
@@ -196,7 +233,8 @@
             		</div>
         		</div>
         		
-		<?php } ?>
+		<?php } 
+		      }?>
         <!-- End Finding Beach area -->
 
         <!-- Start Footer Area -->
