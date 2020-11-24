@@ -37,95 +37,20 @@
 		<!-- modernizr css -->
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    
-
-
     <style>
-        /*.bg-dk-blue py-8 text-w{
-            background-color: #1D5376;
-        }*/
- 
- 
-
-.divided {
-  display: flex;
-  align-items: center;
-}
-
-.divider {
-  flex-grow: 1;
-  border-bottom: 3px solid white;
-  margin: 5px
-}
         .orgtop{
-           background-color:#1D5376 ;
+           background-color:#008eab;
            padding-bottom: 5%;
            padding-top:3%;
         }
-
-        .orgformbg{
-            background-color: #00A79E;
-            padding-top:5%;
-            padding-bottom: 5%;
+		.py-8{
+         	background-color: #01bcc6;  
+            color: white;
+            padding-top: 3%;
+            padding-bottom:3%;
         }
-        .acf-label{
-            color:white;
-        }
-
-        .button {
-            display: inline-block;
-            border-radius: 0 15px 0 15px;
-            background-color:#F9B223;
-            border: none;
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 18px;
-            padding: 20px;
-            width: 200px;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 5px;
-            }
-
-            .button span {
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            transition: 0.5s;
-            }
-
-            .button span:after {
-            content: '\00bb';
-            position: absolute;
-            opacity: 0;
-            top: 0;
-            right: -20px;
-            transition: 0.5s;
-            }
-
-            .button:hover span {
-            padding-right: 25px;
-            }
-
-            .button:hover span:after {
-            opacity: 1;
-            right: 0;
-            }
-
-            .py-8{
-              background-color: #00A79E;  
-              color: white;
-              padding-top: 3%;
-              padding-bottom:3%;
-            }
-
-    </style>
-
-
-
-
-
-		<body>
+	</style>
+	<body>
 
 		<!--[if lt IE 8]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -187,7 +112,7 @@
                                                     <li><a class="pages" href="index.html">Home</a></li>
                                                     <li><a href="about.html">About us</a></li>
                                                     <li><a href="find.html">Beach Cleanup</a></li>
-                                                    <li><a href="#">Organize Beach Cleanup</a></li>
+                                                    <li><a href="organize.html">Organize Beach Cleanup</a></li>
                                                     <li><a class="pages" href="#">Blog</a>
                                                         <!---
                                                         <ul class="sub-menu">
@@ -254,73 +179,50 @@
             </div>
         </div>
         <!-- End breadcumb Area -->
-
-
-
-
-          <br><br><br>
         <!-- organize beach clean area start -->
-
-      <!--  <section>-->
-            <!--<div class="container" class="orgtop">-->
-                <div class="orgtop">
+             <div class="orgtop">
               <div class="row">
                 <div class="col text-center">
                   <h1 class="mb-2 text-uppercase" style="color:white; font-size: 160%;"><strong> How To Organise a beach clean</strong></h1>
-                  <img src="data:image/png;base64,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" width="95" height="20" alt="Waves">     
+                  <img src="https://p.kindpng.com/picc/s/114-1145094_water-wave-drip-sea-beach-wave-structure-river.png" width="95" height="20" alt="Waves">     
                   <div class="row mt-5 page-intro">
                     <div class="col-md-8 offset-md-2">
-                      <p style="color:white;">If you can’t find a beach clean near you to take part in, then organise one! Follow the easy instructions</p> <p style="color:white;">below, fill out the required form and once your details have been verified by an</p><p style="color:white;"> administrator your beach clean event will be ready to welcome volunteers.</p>
+                      <p style="color:white;">If you can’t find a beach clean near you to take part in, then organise one! Follow the easy instructions below, fill out the required form and once your details have been verified by an administrator your beach clean event will be ready to welcome volunteers.</p>
                     </div>
                   </div>
                       </div>
               </div>
             </div>      
-
- 
- 
- 
   <section class="py-8">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 offset-md-2">
                         <!--<div class="gd"></div>-->
 						<h2 style="color:white; font-size: 180%; ">1. Choose a beach to clean</h2>
-<p style="color:white;">The first thing to do is decide where you are going to have your beach clean. Here are some things to consider:</p>
-<ul>
-<li style="color:white;">Is there easy access (a designated path or walkway) to the beach?</li>
-<li style="color:white;">Does the beach get regularly cleaned by the council already?</li>
-<li style="color:white;">Don&#8217;t forget to check the tide tables for the beach before setting a time</li>
-</ul><br><br>
-<h2 style="color:white; color:white; font-size: 180%; ">2. Notify the local authorities / beach owner</h2>
-<p style="color:white;">For organised events it is always good to notify the local authorities, the beach manager or the beach owner if it is private land. They will not only give you permission and advice, but will probably be able to help provide equipment and collection at the end of the event. If they can&#8217;t collect the litter after the event make sure you have a plan to take it away.</p>
-<br>
-<h2 style="color:white; color:white; font-size: 180%; ">3. Complete a risk assessment</h2>
-<p style="color:white;">Although volunteers who participate in your beach clean will be doing so at their own risk, it&#8217;s always a good idea to complete a risk assessment. A risk assessment is just a simple examination of the location and activities so that any potential hazards are identified and precautionary measures can be taken.</p>
-<ul>
-<!--<li><a href="https://www.beachclean.orgwp-content/uploads/2019/09/BEACH-CLEAN-RISK-ASSESSMENT.pdf" style="color:white;">Risk assessment form (PDF)</a></li>-->
-</ul><br>
-<h2 style="color:white; color:white; font-size: 180%; ">4. Register the event</h2>
-<p style="color:white;">This can be done quickly and easily using our online registration form. Once registered it will be checked by our staff for approval. Once approved it will be live on this site and people will be able to search for it. If you link the event to your social media it will help to spread the word and get more volunteers.</p>
-<br>
-<h2 style="color:white; color:white; font-size: 180%; ">5. Confirmation of volunteers</h2>
-<p style="color:white;">When volunteers register to join your beach clean you will receive an email from them. You need to send them a confirmatory email to let them know you have received it.  This is also a great time to send them any additional information about the event which might not have been included on the event registration form (eg local cafes, specific details about access or parking and so on).</p>
-<br>
-<h2 style="color:white; color:white; font-size: 180%; ">6. Update volunteers</h2>
-<p style="color:white;">As the date approaches it might be a good idea to send out a confirmatory email to volunteers. Check the weather, provide last minute details, particularly if anything has changed.</p>
+							<p style="color:white;">The first thing to do is decide where you are going to have your beach clean. Here are some things to consider:</p>
+							<ul>
+							<li style="color:white;">Is there easy access (a designated path or walkway) to the beach?</li>
+							<li style="color:white;">Does the beach get regularly cleaned by the council already?</li>
+							<li style="color:white;">Don&#8217;t forget to check the tide tables for the beach before setting a time</li>
+							</ul><br><br>
+							<h2 style="color:white; color:white; font-size: 180%; ">2. Notify the local authorities / beach owner</h2>
+							<p style="color:white;">For organised events it is always good to notify the local authorities, the beach manager or the beach owner if it is private land. They will not only give you permission and advice, but will probably be able to help provide equipment and collection at the end of the event. If they can&#8217;t collect the litter after the event make sure you have a plan to take it away.</p>
+							<br>
+							<h2 style="color:white; color:white; font-size: 180%; ">3. Complete a risk assessment</h2>
+							<p style="color:white;">Although volunteers who participate in your beach clean will be doing so at their own risk, it&#8217;s always a good idea to complete a risk assessment. A risk assessment is just a simple examination of the location and activities so that any potential hazards are identified and precautionary measures can be taken.</p>
+							<br>
+							<h2 style="color:white; color:white; font-size: 180%; ">4. Register the event</h2>
+							<p style="color:white;">This can be done quickly and easily using our online registration form. Once registered it will be checked by our staff for approval. Once approved it will be live on this site and people will be able to search for it. If you link the event to your social media it will help to spread the word and get more volunteers.</p>
+							<br>
+							<h2 style="color:white; color:white; font-size: 180%; ">5. Confirmation of volunteers</h2>
+							<p style="color:white;">When volunteers register to join your beach clean you will receive an email from them. You need to send them a confirmatory email to let them know you have received it.  This is also a great time to send them any additional information about the event which might not have been included on the event registration form (eg local cafes, specific details about access or parking and so on).</p>
+							<br>
+							<h2 style="color:white; color:white; font-size: 180%; ">6. Update volunteers</h2>
+							<p style="color:white;">As the date approaches it might be a good idea to send out a confirmatory email to volunteers. Check the weather, provide last minute details, particularly if anything has changed.</p>
 					</div>
 				</div>
 			</div>
 		</section>
-
-
-
-
-
-
-
-
-
 
      <!-- Start Footer Area -->
         <footer class="footer1">
@@ -456,244 +358,4 @@
          <!-- main js -->
          <script src="js/main.js"></script>
      </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
