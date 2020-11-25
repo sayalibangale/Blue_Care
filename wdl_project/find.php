@@ -188,7 +188,7 @@
 											<i class="far fa-calendar-alt" style='font-size:18px'></i> <?echo date('d/m/Y', strtotime($row['org_date']));
 											echo " , ";
 											echo date('l', strtotime($row['org_date']));?>
-											<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row[time] UTC"));?>
+											<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row['start'] UTC"));?>
 										</div>
 										<form method="POST" class="text-right">
 										<a class="btn rounded-0" href="details.php?org_id=<?= $row['org_id'] ?>" role="button"><i class="fas fa-arrow-right"></i></a>
@@ -220,7 +220,7 @@
 								<i class="far fa-calendar-alt" style='font-size:18px'></i> <?echo date('d/m/Y', strtotime($row['org_date']));
 								echo " , ";
 								echo date('l', strtotime($row['org_date']));?>
-								<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row[time] UTC"));?>
+								<br><i class="far fa-clock" style='font-size:18px'></i> <?echo date("g:i a", strtotime("$row['start'] UTC"));?>
 							</div>
 							<form method="POST" class="text-right">
         					<a class="btn rounded-0" href="details.php?org_id=<?= $row['org_id'] ?>" role="button"><i class="fas fa-arrow-right"></i></a>
