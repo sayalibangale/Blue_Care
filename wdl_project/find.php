@@ -145,7 +145,7 @@
         <!-- Start Finding Beach area -->
         <?php
         $conn = mysqli_connect("localhost:3307","root","root","wdl_project");
-        $query = "SELECT * FROM organise where org_date>=CURDATE() and org_date<DATE_ADD(CURDATE(),INTERVAL 4 DAY)";
+        $query = "SELECT * FROM organise where org_date>=CURDATE() and org_date<DATE_ADD(CURDATE(),INTERVAL 5 DAY)";
 		$result = mysqli_query($conn, $query);
 		$rowCount = mysqli_num_rows($result); ?>
 		<div class="search-bar bg-color page-padding-2">
