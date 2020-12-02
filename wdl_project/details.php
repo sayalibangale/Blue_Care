@@ -288,7 +288,7 @@
 
 		<?php
 
-        $conn = mysqli_connect("localhost:3307","root","root","wdl_project");
+        $conn = mysqli_connect("localhost:3307","root","root","blue_care");
 
         $id = $_GET['org_id'];
 
