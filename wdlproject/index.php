@@ -200,7 +200,7 @@
 		                        <li><a href="#ab">About us</a></li>
 		                        <li><a href="find.php">Beach Cleanup</a></li>
 		                        <li><a href="organize.php">Organize Beach Cleanup</a></li>
-		                        <li><a class="pages" href="#">Blog</a></li>
+		                        <li><a class="pages" href="blog_sidebar.php">Blog</a></li>
 								<?if(isset($_SESSION['username'])) { ?>
 									<li><a href="profile.php"><?echo $_SESSION['username'];?></a>
                                                     <ul class="sub-menu">
@@ -231,7 +231,7 @@
                                         <li><a href="#ab">About us</a></li>
                                         <li><a href="find.php">Beach Cleanup</a></li>
                                         <li><a href="organize">Organize Beach Cleanup</a></li>
-                                        <li><a class="pages" href="#">Blog</a>
+                                        <li><a class="pages" href="blog_siderbar.php">Blog</a>
                                             <ul class="sub-menu">
                                                 
                                             </ul>
